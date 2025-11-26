@@ -4,13 +4,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import ThemeButton from "./ThemeButton";
-
-// Navigation items
-const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/blog", label: "Blog" },
-  { href: "/about", label: "About" },
-];
+import siteConfig from '../../data/site-config.json';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -28,19 +22,19 @@ export default function Navbar() {
       <div className="container px-4 mx-auto relative lg:text-sm">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center shrink-0">
+          <Link href="/" className="flex items-center shrink-0">
             <div className="w-10 h-10 bg-(--accent) rounded-lg flex items-center justify-center mr-3">
               <span className="text-white font-bold text-lg">B</span>
             </div>
             <span className="text-xl font-bold text-(--text-primary)">
-              BlogSpace
+              {siteConfig.site.name}
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <ul className="hidden lg:flex ml-14 space-x-12">
-            {navItems.map((item, index) => (
-              <li key={index}>
+            {siteConfig.navigation.header.map((item) => (
+              <li key={item.id}>
                 <Link
                   href={item.href}
                   className="text-(--text-secondary) hover:text-(--accent) transition-colors font-medium"
@@ -82,9 +76,9 @@ export default function Navbar() {
         <div className={`lg:hidden ${isMobileMenuOpen ? "block" : "hidden"}`}>
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-(--border) mt-4">
             {/* Mobile Navigation Items */}
-            {navItems.map((item, index) => (
+            {siteConfig.navigation.header.map((item) => (
               <Link
-                key={index}
+                key={item.id}
                 href={item.href}
                 className="block px-3 py-2 rounded-md text-base font-medium text-(--text-secondary) hover:text-(--accent) hover:bg-(--bg-secondary) transition-colors"
                 onClick={closeMobileMenu}
