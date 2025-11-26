@@ -74,7 +74,7 @@ type BlogData = {
 // Map of all blogs
 const blogData: Record<string, BlogData> = {
   technology: technologyBlog as BlogData,
-  design: designBlog as BlogData,
+  design: designBlog as unknown as BlogData, // <<== here, i include the unknown
   productivity: productivityBlog as BlogData,
   lifestyle: lifestyleBlog as BlogData,
 };
@@ -189,8 +189,8 @@ export default function BlogPostDetail() {
           </blockquote>
         `;
 
-            case "image":
-              return `
+          case "image":
+            return `
       <figure class="my-8" key=${index}>
         <div class="rounded-xl overflow-hidden bg-(--bg-secondary) border border-(--border)">
           <img 
