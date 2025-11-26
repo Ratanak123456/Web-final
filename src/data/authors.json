@@ -1,0 +1,28 @@
+{
+  "authors": [
+    {
+      "id": 2,
+      "slug": "mike-johnson",
+      "name": "Mike Johnson",
+      "role": "Fullstack Developer"
+    },
+    {
+      "id": 3,
+      "slug": "emma-wilson",
+      "name": "Emma Wilson",
+      "role": "CSS Architect"
+    },
+    {
+      "id": 4,
+      "slug": "jake-peterson",
+      "name": "Jake Peterson",
+      "role": "Senior Technology Editor"
+    },
+    {
+      "id": 5,
+      "slug": "sean-hollister",
+      "name": "Sean Hollister",
+      "role": "Senior Editor at The Verge"
+    }
+  ]
+}

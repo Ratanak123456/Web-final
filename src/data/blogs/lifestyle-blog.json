@@ -1,0 +1,189 @@
+{
+  "blog": {
+    "id": 4,
+    "slug": "lifestyle",
+    "name": "Developer Lifestyle",
+    "description": "Balancing work, life, and wellness as a developer in the modern tech industry",
+    "category": "lifestyle",
+    "featured": false,
+    "color": "#F59E0B"
+  },
+  "posts": [
+    {
+      "id": 201,
+      "slug": "pumpkin-spice-syrup-recipe",
+      "title": "Pumpkin Spice Syrup Recipe",
+      "excerpt": "Making homemade pumpkin spice syrup is easy and delicious. It’s the perfect addition to your homemade pumpkin spice latte.",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Elsie and I have an inside joke about what we call the “pumpkin spice latte effect.” It’s our theory that right around the beginning of September, everybody gets a little bit nicer/more considerate/happy. Us included."
+        },
+        {
+          "type": "image",
+          "url": "/image/life/id201/pumpkin-spice-latte-syrup-730x730.png",
+          "alt": "pumpkin-spice-latte-syrup-730x730",
+          "credit": "Redditor CassTexas"
+        },
+        {
+          "type": "paragraph",
+          "text": "We are for SURE affected by the PSL effect. So, of course, making your own pumpkin spice syrup at home is a great way to take advantage of this good vibes effect. And in case you need here’s how to make the best latte recipe at home with or without an espresso machine."
+        },
+        {
+          "type": "text",
+          "text":"I love to try coffee from just about anywhere, but I’m not above getting excited about PSL day at Starbucks! And, I think on a “deeper” level, somehow PSL day reminds us all that fall is in full swing."
+          
+        },
+        {
+          "type": "paragraph",
+          "text": "Here in southern Missouri, that means cooler weather, hay rides, hot chocolate, apple picking, pumpkin carving, hot cider, layered clothing, and (most importantly) the holidays are on their way."
+        },
+        {
+          "type": "image",
+          "url": "/image/life/id201/pumpkin-spice-latte-syrup-recipe-1-1-730x1095.png",
+          "alt": "pumpkin-spice-latte-syrup-730x730"
+        },
+        {
+          "type": "paragraph",
+          "text": "I LOVE how this pumpkin spice syrup recipe turned out. I may have to make this a new tradition every year and create my own pumpkin spice latte effect. 🙂 Here’s my recipe, but feel free to adjust the spices to your own liking."
+        },
+        {
+          "type": "image",
+          "url": "/image/life/id201/6a00d8358081ff69e2019aff6a102e970b-800wi.png",
+          "alt": "pumpkin-spice-latte-syrup-730x730"
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Pumpkin Spice Syrup Ingredients"
+        },
+        {
+          "type": "list",
+          "items": [
+            "2 cups water",
+            "1 1/2 cups sugar",
+            "1/2 cup packed brown sugar",
+            "1 teaspoon cinnamon or 4-5 cinnamon sticks (I used half cinnamon and half cinnamon sticks)",
+            "1/2 teaspoon nutmeg",
+            "1/2 teaspoon ground ginger",
+            "1/2 teaspoon ground cloves (I go easy on the cloves, because I think they are such a strong flavor)",
+            "4 heaping tablespoons of pumpkin puree"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Directions"
+        },
+        {
+          "type": "paragraph",
+          "text": "In a pot, combine all the ingredients. Stir together over medium heat until the sugar has dissolved. Continue cooking over low/medium heat for an additional 5-6 minutes (do not allow to boil)."
+        },
+        {         
+          "type": "image",
+          "url": "/image/life/id201/67a00d8358081ff69e2019aff6ac950970d-800wi.png",
+          "alt": "pumpkin-spice-latte-syrup-730x730"
+        },
+        {
+          "type": "paragraph",
+          "text": "Strain the mixture through a fine mesh strainer and store in an airtight container. You can keep the unused syrup in the refrigerator for up to two weeks. Be sure to give the syrup a good shake before reusing. Combine the coffee, psl syrup, and hot milk and enjoy!"
+        },
+        {         
+          "type": "image",
+          "url": "/image/life/id201/pumpkin-spice-latte-syrup-recipe--730x984.png",
+          "alt": "pumpkin-spice-latte-syrup-730x730"
+        }
+      ],
+      "authorId": 7,
+      "tags": ["burnout", "mental-health", "work-life-balance", "wellness", "career"],
+      "publishedAt": "2023-11-05",
+      "readTime": 7,
+      "featured": true,
+      "stats": {
+        "views": 723,
+        "likes": 89,
+        "comments": 31,
+        "shares": 42
+      },
+      "featuredImage": {
+        "url": "/image/life/id201/PumpkinSpiceSyrup-6.png",
+        "alt": "Person practicing mindfulness and self-care activities",
+        "credit": "Wellness illustration"
+      }
+    },
+    {
+      "id": 302,
+      "slug": "healthy-coding-habits",
+      "title": "Healthy Coding Habits for Long-term Career Success",
+      "excerpt": "Develop sustainable coding habits that will protect your physical health and ensure you can enjoy a long, successful career in technology.",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Coding is mentally demanding work that can also take a physical toll. Developing healthy habits early in your career can prevent chronic issues and help you thrive long-term."
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Physical Health for Developers"
+        },
+        {
+          "type": "paragraph",
+          "text": "Sitting for long periods can lead to various health issues:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Invest in an ergonomic chair and proper desk setup",
+            "Practice the 20-20-20 rule (look 20 feet away every 20 minutes)",
+            "Incorporate standing or walking breaks into your day",
+            "Stretch regularly to prevent muscle stiffness",
+            "Stay hydrated and maintain good posture"
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "text": "Continuous Learning Without Overwhelm"
+        },
+        {
+          "type": "paragraph",
+          "text": "The tech industry moves fast, but you don't have to learn everything:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Focus on depth in your core technologies",
+            "Schedule learning time rather than trying to learn constantly",
+            "Follow industry trends without feeling pressured to master everything",
+            "Learn fundamentals that transfer across technologies",
+            "Build projects that interest you to make learning enjoyable"
+          ]
+        },
+        {
+          "type": "blockquote",
+          "text": "The most successful developers aren't those who know the most technologies, but those who know how to learn effectively and sustainably."
+        },
+        {
+          "type": "paragraph",
+          "text": "By developing these healthy habits, you're not just investing in your current productivity—you're investing in a long, fulfilling career in technology."
+        }
+      ],
+      "authorId": 8,
+      "tags": ["health", "ergonomics", "career-growth", "learning", "habits"],
+      "publishedAt": "2023-10-28",
+      "readTime": 5,
+      "featured": false,
+      "stats": {
+        "views": 612,
+        "likes": 54,
+        "comments": 15,
+        "shares": 23
+      },
+      "featuredImage": {
+        "url": "/images/blog/healthy-coding.jpg",
+        "alt": "Ergonomic workspace setup with proper posture and equipment",
+        "credit": "Healthy workspace"
+      }
+    }
+  ]
+}

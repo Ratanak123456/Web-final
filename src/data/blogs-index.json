@@ -1,0 +1,68 @@
+{
+  "blogs": [
+    {
+      "id": 1,
+      "slug": "technology",
+      "name": "Technology Blog",
+      "description": "Latest trends in web development, programming, and emerging technologies",
+      "category": "technology",
+      "postCount": 2,
+      "featured": true,
+      "color": "#3B82F6",
+      "icon": "💻",
+      "latestPost": {
+        "slug": "future-web-development-trends-2024",
+        "title": "The Future of Web Development: Trends to Watch in 2024",
+        "publishedAt": "2023-12-15"
+      }
+    },
+    {
+      "id": 2,
+      "slug": "design",
+      "name": "Design Blog",
+      "description": "UI/UX design principles, best practices, and creative inspiration",
+      "category": "design",
+      "postCount": 2,
+      "featured": true,
+      "color": "#8B5CF6",
+      "icon": "🎨",
+      "latestPost": {
+        "slug": "css-architecture-for-scale",
+        "title": "CSS Architecture for Scale",
+        "publishedAt": "2023-11-28"
+      }
+    },
+    {
+      "id": 3,
+      "slug": "productivity",
+      "name": "Productivity Blog",
+      "description": "Tools, techniques, and workflows to boost your efficiency",
+      "category": "productivity",
+      "postCount": 2,
+      "featured": false,
+      "color": "#10B981",
+      "icon": "⚡",
+      "latestPost": {
+        "slug": "developer-productivity-tips",
+        "title": "Developer Productivity Tips and Tricks",
+        "publishedAt": "2023-11-15"
+      }
+    },
+    {
+      "id": 4,
+      "slug": "lifestyle",
+      "name": "Developer Lifestyle",
+      "description": "Balancing work, life, and wellness as a developer",
+      "category": "lifestyle",
+      "postCount": 2,
+      "featured": false,
+      "color": "#F59E0B",
+      "icon": "🌱",
+      "latestPost": {
+        "slug": "avoiding-developer-burnout",
+        "title": "Avoiding Developer Burnout: Signs and Strategies",
+        "publishedAt": "2023-11-05"
+      }
+    }
+  ]
+}
