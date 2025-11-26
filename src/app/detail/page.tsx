@@ -1,7 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { Calendar, Clock, User, ArrowLeft, Share2, Bookmark, Eye } from "lucide-react";
+import {
+  Calendar,
+  Clock,
+  User,
+  ArrowLeft,
+  Share2,
+  Bookmark,
+  Eye,
+} from "lucide-react";
 import { useState } from "react";
 
 export default function BlogPost() {
@@ -11,7 +19,8 @@ export default function BlogPost() {
   const blogPost = {
     id: 1,
     title: "The Future of Web Development: Trends to Watch in 2024",
-    excerpt: "Exploring the latest technologies and methodologies that are shaping the future of web development and how they impact developers and businesses alike.",
+    excerpt:
+      "Exploring the latest technologies and methodologies that are shaping the future of web development and how they impact developers and businesses alike.",
     content: `
       <p>The landscape of web development is constantly evolving, with new technologies emerging at a rapid pace. As we move through 2024, several key trends are shaping how we build for the web.</p>
 
@@ -50,41 +59,44 @@ export default function BlogPost() {
     author: {
       name: "Sarah Chen",
       role: "Senior Frontend Developer",
-      avatar: "/api/placeholder/40/40"
+      avatar: "/api/placeholder/40/40",
     },
     publishedAt: "December 15, 2023",
     readTime: "8 min read",
     category: "Technology",
     tags: ["Web Development", "AI", "Serverless", "WASM", "Trends"],
     views: 1247,
-    likes: 89
+    likes: 89,
   };
 
   const relatedPosts = [
     {
       id: 2,
       title: "Getting Started with Next.js 14",
-      excerpt: "A comprehensive guide to the latest features in Next.js 14 and how to leverage them in your projects.",
+      excerpt:
+        "A comprehensive guide to the latest features in Next.js 14 and how to leverage them in your projects.",
       category: "Technology",
       readTime: "6 min read",
-      date: "December 10, 2023"
+      date: "December 10, 2023",
     },
     {
       id: 3,
       title: "The Power of TypeScript in Modern Web Apps",
-      excerpt: "How TypeScript is becoming the standard for building robust and maintainable web applications.",
+      excerpt:
+        "How TypeScript is becoming the standard for building robust and maintainable web applications.",
       category: "Technology",
       readTime: "5 min read",
-      date: "December 5, 2023"
+      date: "December 5, 2023",
     },
     {
       id: 4,
       title: "CSS Architecture for Scale",
-      excerpt: "Best practices for organizing and scaling your CSS in large projects using modern methodologies.",
+      excerpt:
+        "Best practices for organizing and scaling your CSS in large projects using modern methodologies.",
       category: "Technology",
       readTime: "7 min read",
-      date: "November 28, 2023"
-    }
+      date: "November 28, 2023",
+    },
   ];
 
   return (
@@ -105,8 +117,6 @@ export default function BlogPost() {
       </nav>
 
       <div className="container px-4 mx-auto py-8">
-
-
         {/* Blog Header */}
         <article className="max-w-4xl mx-auto">
           <header className="mb-8">
@@ -119,10 +129,13 @@ export default function BlogPost() {
                 <button
                   onClick={() => setIsBookmarked(!isBookmarked)}
                   className={`flex items-center space-x-1 transition-colors ${
-                    isBookmarked ? 'text-(--accent)' : 'hover:text-(--accent)'
+                    isBookmarked ? "text-(--accent)" : "hover:text-(--accent)"
                   }`}
                 >
-                  <Bookmark size={18} fill={isBookmarked ? "currentColor" : "none"} />
+                  <Bookmark
+                    size={18}
+                    fill={isBookmarked ? "currentColor" : "none"}
+                  />
                   <span className="text-sm">Save</span>
                 </button>
                 <button className="flex items-center space-x-1 hover:text-(--accent) transition-colors">
@@ -167,12 +180,19 @@ export default function BlogPost() {
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 bg-(--accent) rounded-full flex items-center justify-center">
                   <span className="text-white font-bold text-sm">
-                    {blogPost.author.name.split(' ').map(n => n[0]).join('')}
+                    {blogPost.author.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-(--text-primary)">{blogPost.author.name}</h3>
-                  <p className="text-(--text-secondary) text-sm">{blogPost.author.role}</p>
+                  <h3 className="font-semibold text-(--text-primary)">
+                    {blogPost.author.name}
+                  </h3>
+                  <p className="text-(--text-secondary) text-sm">
+                    {blogPost.author.role}
+                  </p>
                 </div>
               </div>
             </div>
@@ -181,12 +201,15 @@ export default function BlogPost() {
           {/* Featured Image */}
           <div className="mb-8 rounded-xl overflow-hidden bg-(--bg-secondary) border border-(--border)">
             <div className="w-full h-64 lg:h-96 bg-linear-to-br from-(--accent)/20 to-(--accent)/10 flex items-center justify-center">
-              <span className="text-(--text-secondary) text-lg">Featured Image</span>
+              <span className="text-(--text-secondary) text-lg">
+                Featured Image
+              </span>
             </div>
           </div>
 
           {/* Blog Content */}
-          <div className="prose prose-lg max-w-none 
+          <div
+            className="prose prose-lg max-w-none 
             prose-headings:text-(--text-primary)
             prose-p:text-(--text-secondary)
             prose-strong:text-(--text-primary)
@@ -199,7 +222,8 @@ export default function BlogPost() {
             prose-a:text-(--accent)
             prose-a:no-underline
             hover:prose-a:underline
-            mb-12">
+            mb-12"
+          >
             <div dangerouslySetInnerHTML={{ __html: blogPost.content }} />
           </div>
 
@@ -240,7 +264,9 @@ export default function BlogPost() {
 
         {/* Related Posts */}
         <section className="max-w-4xl mx-auto mb-16">
-          <h2 className="text-2xl font-bold text-(--text-primary) mb-6">Related Posts</h2>
+          <h2 className="text-2xl font-bold text-(--text-primary) mb-6">
+            Related Posts
+          </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedPosts.map((post) => (
               <Link
@@ -275,7 +301,8 @@ export default function BlogPost() {
               Stay Updated with Our Latest Posts
             </h2>
             <p className="text-(--text-secondary) mb-6 max-w-2xl mx-auto">
-              Get the latest articles on web development, design, and technology delivered straight to your inbox.
+              Get the latest articles on web development, design, and technology
+              delivered straight to your inbox.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input
