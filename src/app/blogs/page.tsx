@@ -12,78 +12,84 @@ import BlogCard from "../../components/card/BlogCard";
 import { BlogPostWithBlogInfo } from "../../types/blog";
 
 // Import all blog data
-import technologyBlog from '../../data/blogs/technology-blog.json';
-import designBlog from '../../data/blogs/design-blog.json';
-import productivityBlog from '../../data/blogs/productivity-blog.json';
-import lifestyleBlog from '../../data/blogs/lifestyle-blog.json';
+import technologyBlog from "../../data/blogs/technology-blog.json";
+import designBlog from "../../data/blogs/design-blog.json";
+import productivityBlog from "../../data/blogs/productivity-blog.json";
+import lifestyleBlog from "../../data/blogs/lifestyle-blog.json";
 
 export default function BlogsPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   // Combine all posts from all blogs directly here
-  const allPosts: BlogPostWithBlogInfo[] = [
-    ...technologyBlog.posts.map(post => ({
+  const allPosts: any[] = [
+    // <<=== i changed BlogPostWithBlogInfo to any
+
+    ...technologyBlog.posts.map((post) => ({
       ...post,
       blogSlug: technologyBlog.blog.slug,
       blogName: technologyBlog.blog.name,
       blogColor: technologyBlog.blog.color,
-      blogIcon: technologyBlog.blog.icon
+      blogIcon: technologyBlog.blog.icon,
     })),
-    ...designBlog.posts.map(post => ({
+    ...designBlog.posts.map((post) => ({
       ...post,
       blogSlug: designBlog.blog.slug,
       blogName: designBlog.blog.name,
       blogColor: designBlog.blog.color,
-      blogIcon: designBlog.blog.icon
+      blogIcon: designBlog.blog.icon,
     })),
-    ...productivityBlog.posts.map(post => ({
+    ...productivityBlog.posts.map((post) => ({
       ...post,
       blogSlug: productivityBlog.blog.slug,
       blogName: productivityBlog.blog.name,
       blogColor: productivityBlog.blog.color,
-      blogIcon: productivityBlog.blog.icon
+      blogIcon: productivityBlog.blog.icon,
     })),
-    ...lifestyleBlog.posts.map(post => ({
+    ...lifestyleBlog.posts.map((post) => ({
       ...post,
       blogSlug: lifestyleBlog.blog.slug,
       blogName: lifestyleBlog.blog.name,
       blogColor: lifestyleBlog.blog.color,
-      blogIcon: lifestyleBlog.blog.icon
-    }))
-  ].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+      blogIcon: lifestyleBlog.blog.icon,
+    })),
+  ].sort(
+    (a, b) =>
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+  );
 
   // Filter posts based on search and category
-  const filteredPosts = allPosts.filter(post => {
-    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-    
-    const matchesCategory = selectedCategory === "all" || 
-                           post.blogSlug === selectedCategory;
-    
+  const filteredPosts = allPosts.filter((post) => {
+    const matchesSearch =
+      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.tags.some((tag) =>
+        tag.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+
+    const matchesCategory =
+      selectedCategory === "all" || post.blogSlug === selectedCategory;
+
     return matchesSearch && matchesCategory;
   });
 
   return (
     <div className="min-h-screen bg-(--bg-primary)">
-        <BlogHeader 
-          searchTerm={searchTerm}
-          onSearchChange={setSearchTerm}
-          selectedCategory={selectedCategory}
-          onCategoryChange={setSelectedCategory}
-        />
+      <BlogHeader
+        searchTerm={searchTerm}
+        onSearchChange={setSearchTerm}
+        selectedCategory={selectedCategory}
+        onCategoryChange={setSelectedCategory}
+      />
       <div className="container px-4 mx-auto py-8">
         {/* Header Component */}
-
 
         {/* Results Count */}
         <div className="mb-6">
           <p className="text-(--text-secondary)">
-            {filteredPosts.length === allPosts.length 
+            {filteredPosts.length === allPosts.length
               ? `Showing all ${filteredPosts.length} articles`
-              : `Showing ${filteredPosts.length} of ${allPosts.length} articles`
-            }
+              : `Showing ${filteredPosts.length} of ${allPosts.length} articles`}
             {selectedCategory !== "all" && ` in ${selectedCategory}`}
             {searchTerm && ` for "${searchTerm}"`}
           </p>
