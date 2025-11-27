@@ -13,10 +13,13 @@ import {
 import { useState } from "react";
 import { useParams } from "next/navigation";
 
+// Import types
+import { ContentBlock } from "../../../../types/blog";
+
 // Import blog data
 import technologyBlog from "../../../../data/blogs/technology-blog.json";
-import designBlog from "../../../../data/blogs/design-blog.json";
-import productivityBlog from "../../../../data/blogs/productivity-blog.json";
+import entertainmentBlog from "../../../../data/blogs/entertainment-blog.json";
+import climateBlog from "../../../../data/blogs/climate-blog.json";
 import lifestyleBlog from "../../../../data/blogs/lifestyle-blog.json";
 import authorsData from "../../../../data/authors.json";
 import Image from "next/image";
@@ -73,10 +76,10 @@ type BlogData = {
 
 // Map of all blogs
 const blogData: Record<string, BlogData> = {
-  technology: technologyBlog as BlogData,
-  design: designBlog as BlogData,
-  productivity: productivityBlog as BlogData,
-  lifestyle: lifestyleBlog as BlogData,
+  technology: technologyBlog as unknown as BlogData,
+  entertainment: entertainmentBlog as unknown as BlogData,
+  climate: climateBlog as unknown as BlogData,
+  lifestyle: lifestyleBlog as unknown as BlogData,
 };
 
 export default function BlogPostDetail() {
@@ -133,30 +136,32 @@ export default function BlogPostDetail() {
   };
 
   // Format content blocks to HTML with proper styling
-  const renderContent = (content: any[]) => {
+  const renderContent = (content: ContentBlock[]) => {
     return content
       .map((block, index) => {
-        switch (block.type) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const b = block as any;
+        switch (b.type) {
           case "paragraph":
-            return `<p class="mb-6 text-(--text-secondary) leading-relaxed text-lg" key=${index}>${block.text}</p>`;
+            return `<p class="mb-6 text-(--text-secondary) leading-relaxed text-lg" key=${index}>${b.text}</p>`;
 
           case "heading":
-            if (block.level === 2) {
-              return `<h2 class="text-2xl font-bold text-(--text-primary) mt-8 mb-4 pb-2 border-b border-(--border)" key=${index}>${block.text}</h2>`;
-            } else if (block.level === 3) {
-              return `<h3 class="text-xl font-semibold text-(--text-primary) mt-6 mb-3" key=${index}>${block.text}</h3>`;
+            if (b.level === 2) {
+              return `<h2 class="text-2xl font-bold text-(--text-primary) mt-8 mb-4 pb-2 border-b border-(--border)" key=${index}>${b.text}</h2>`;
+            } else if (b.level === 3) {
+              return `<h3 class="text-xl font-semibold text-(--text-primary) mt-6 mb-3" key=${index}>${b.text}</h3>`;
             } else {
-              return `<h${block.level} class="text-${
-                7 - (block.level || 2)
+              return `<h${b.level} class="text-${
+                7 - (b.level || 2)
               }xl font-bold text-(--text-primary) mt-8 mb-4" key=${index}>${
-                block.text
-              }</h${block.level}>`;
+                b.text
+              }</h${b.level}>`;
             }
 
           case "list":
             return `
           <ul class="my-6 space-y-2" key=${index}>
-            ${block.items
+            ${b.items
               ?.map(
                 (item: string) => `
               <li class="flex items-start">
@@ -173,11 +178,11 @@ export default function BlogPostDetail() {
             return `
           <div class="my-6 rounded-lg overflow-hidden" key=${index}>
             <div class="bg-gray-900 text-gray-100 px-4 py-2 text-sm font-medium flex justify-between items-center">
-              <span>${block.language || "code"}</span>
+              <span>${b.language || "code"}</span>
               <button class="text-xs opacity-70 hover:opacity-100">Copy</button>
             </div>
             <pre class="bg-gray-800 text-gray-100 p-4 overflow-x-auto text-sm"><code>${
-              block.code
+              b.code
             }</code></pre>
           </div>
         `;
@@ -185,29 +190,29 @@ export default function BlogPostDetail() {
           case "blockquote":
             return `
           <blockquote class="border-l-4 border-(--accent) bg-(--accent)/5 pl-6 py-4 my-6 italic text-(--text-secondary)" key=${index}>
-            <p class="text-lg">${block.text}</p>
+            <p class="text-lg">${b.text}</p>
           </blockquote>
         `;
 
-            case "image":
-              return `
+          case "image":
+            return `
       <figure class="my-8" key=${index}>
         <div class="rounded-xl overflow-hidden bg-(--bg-secondary) border border-(--border)">
           <img 
-            src="${block.url}" 
-            alt="${block.alt || ""}" 
+            src="${b.url}" 
+            alt="${b.alt || ""}" 
             class="w-full h-auto oject-cover"
             loading="lazy"
           />
         </div>
         ${
-          block.caption
+          b.caption
             ? `
           <figcaption class="text-center text-(--text-secondary) mt-3 text-sm">
-            ${block.caption}
+            ${b.caption}
             ${
-              block.credit
-                ? ` <span class="text-(--text-secondary)/70">Credit: ${block.credit}</span>`
+              b.credit
+                ? ` <span class="text-(--text-secondary)/70">Credit: ${b.credit}</span>`
                 : ""
             }
           </figcaption>
@@ -218,7 +223,7 @@ export default function BlogPostDetail() {
     `;
 
           default:
-            return `<p class="mb-6 text-(--text-secondary) leading-relaxed" key=${index}>${block.text}</p>`;
+            return `<p class="mb-6 text-(--text-secondary) leading-relaxed" key=${index}>${b.text}</p>`;
         }
       })
       .join("");

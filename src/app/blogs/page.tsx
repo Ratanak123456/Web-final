@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { Search } from "lucide-react";
 import { useState } from "react";
 
@@ -13,8 +12,8 @@ import { BlogPostWithBlogInfo } from "../../types/blog";
 
 // Import all blog data
 import technologyBlog from "../../data/blogs/technology-blog.json";
-import designBlog from "../../data/blogs/design-blog.json";
-import productivityBlog from "../../data/blogs/productivity-blog.json";
+import designBlog from "../../data/blogs/entertainment-blog.json";
+import climateBlog from "../../data/blogs/climate-blog.json";
 import lifestyleBlog from "../../data/blogs/lifestyle-blog.json";
 
 export default function BlogsPage() {
@@ -26,9 +25,13 @@ export default function BlogsPage() {
     ...technologyBlog.posts.map((post) => ({
       ...post,
       stats: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         views: (post.stats as any)?.views ?? 0,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         likes: (post.stats as any)?.likes ?? 0,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         comments: (post.stats as any)?.comments ?? 0,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         shares: (post.stats as any)?.shares ?? 0,
       },
       blogSlug: technologyBlog.blog.slug,
@@ -39,9 +42,13 @@ export default function BlogsPage() {
     ...designBlog.posts.map((post) => ({
       ...post,
       stats: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         views: (post.stats as any)?.views ?? 0,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         likes: (post.stats as any)?.likes ?? 0,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         comments: (post.stats as any)?.comments ?? 0,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         shares: (post.stats as any)?.shares ?? 0,
       },
       blogSlug: designBlog.blog.slug,
@@ -49,25 +56,33 @@ export default function BlogsPage() {
       blogColor: designBlog.blog.color,
       blogIcon: designBlog.blog.icon,
     })),
-    ...productivityBlog.posts.map((post) => ({
+    ...climateBlog.posts.map((post) => ({
       ...post,
       stats: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         views: (post.stats as any)?.views ?? 0,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         likes: (post.stats as any)?.likes ?? 0,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         comments: (post.stats as any)?.comments ?? 0,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         shares: (post.stats as any)?.shares ?? 0,
       },
-      blogSlug: productivityBlog.blog.slug,
-      blogName: productivityBlog.blog.name,
-      blogColor: productivityBlog.blog.color,
-      blogIcon: productivityBlog.blog.icon,
+      blogSlug: climateBlog.blog.slug,
+      blogName: climateBlog.blog.name,
+      blogColor: climateBlog.blog.color,
+      blogIcon: climateBlog.blog.icon,
     })),
     ...lifestyleBlog.posts.map((post) => ({
       ...post,
       stats: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         views: (post.stats as any)?.views ?? 0,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         likes: (post.stats as any)?.likes ?? 0,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         comments: (post.stats as any)?.comments ?? 0,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         shares: (post.stats as any)?.shares ?? 0,
       },
       blogSlug: lifestyleBlog.blog.slug,
