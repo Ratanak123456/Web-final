@@ -5,7 +5,10 @@
     "name": "Design Blog",
     "description": "UI/UX design principles, best practices, and creative inspiration",
     "category": "design",
-    "featured": true
+    "featured": true,
+    "color": "#8B5CF6",
+    "icon": "pen-tool",
+    "coverImage": "/image/Design/cover.png"
   },
   "posts": [
     {

@@ -158,7 +158,7 @@ export default function BlogPostDetail() {
           <ul class="my-6 space-y-2" key=${index}>
             ${block.items
               ?.map(
-                (item) => `
+                (item: string) => `
               <li class="flex items-start">
                 <span class="text-(--accent) mr-3 mt-1">•</span>
                 <span class="text-(--text-secondary) leading-relaxed">${item}</span>

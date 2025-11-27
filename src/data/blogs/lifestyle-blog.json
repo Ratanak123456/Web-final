@@ -6,7 +6,9 @@
     "description": "Balancing work, life, and wellness as a developer in the modern tech industry",
     "category": "lifestyle",
     "featured": false,
-    "color": "#F59E0B"
+    "color": "#F59E0B",
+    "icon": "heart",
+    "coverImage": "/image/life/cover.png"
   },
   "posts": [
     {
@@ -94,21 +96,24 @@
           "alt": "pumpkin-spice-latte-syrup-730x730"
         }
       ],
-      "authorId": 7,
-      "tags": ["burnout", "mental-health", "work-life-balance", "wellness", "career"],
-      "publishedAt": "2023-11-05",
+      "authorId": 2,
+      "tags": ["homemade", "pumpkin-spice", "recipe", "fall", "latte"],
+      "publishedAt": "2025-9-1",
       "readTime": 7,
       "featured": true,
       "stats": {
-        "views": 723,
-        "likes": 89,
-        "comments": 31,
-        "shares": 42
+        "views": 2674,
+        "likes": 780
       },
       "featuredImage": {
         "url": "/image/life/id201/PumpkinSpiceSyrup-6.png",
-        "alt": "Person practicing mindfulness and self-care activities",
-        "credit": "Wellness illustration"
+        "alt": "pumpkin-spice-latte-syrup-730x730",
+        "credit": "Redditor CassTexas"
+      },
+      "seo": {
+        "metaTitle": "Pumpkin Spice Syrup Recipe - Homemade PSL",
+        "metaDescription": "Learn how to make delicious homemade pumpkin spice syrup for your lattes.",
+        "keywords": ["pumpkin spice", "syrup", "recipe", "homemade", "latte"]
       }
     },
     {
@@ -183,6 +188,11 @@
         "url": "/images/blog/healthy-coding.jpg",
         "alt": "Ergonomic workspace setup with proper posture and equipment",
         "credit": "Healthy workspace"
+      },
+      "seo": {
+        "metaTitle": "Healthy Coding Habits for Developers",
+        "metaDescription": "Develop sustainable coding habits to protect your physical health and career longevity.",
+        "keywords": ["health", "coding", "habits", "developer", "wellness"]
       }
     }
   ]
