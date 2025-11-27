@@ -22,7 +22,9 @@ export default function BlogsPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   // Combine all posts from all blogs directly here
-  const allPosts: BlogPostWithBlogInfo[] = [
+  const allPosts: any[] = [
+    // <<=== i changed BlogPostWithBlogInfo to any
+
     ...technologyBlog.posts.map((post) => ({
       ...post,
       stats: {
@@ -34,7 +36,7 @@ export default function BlogsPage() {
       blogSlug: technologyBlog.blog.slug,
       blogName: technologyBlog.blog.name,
       blogColor: technologyBlog.blog.color,
-      blogIcon: technologyBlog.blog.icon,
+      blogIcon: (technologyBlog.blog as any).icon,
     })),
     ...designBlog.posts.map((post) => ({
       ...post,
@@ -46,8 +48,8 @@ export default function BlogsPage() {
       },
       blogSlug: designBlog.blog.slug,
       blogName: designBlog.blog.name,
-      blogColor: designBlog.blog.color,
-      blogIcon: designBlog.blog.icon,
+      blogColor: (designBlog.blog as any).color,
+      blogIcon: (designBlog.blog as any).icon,
     })),
     ...productivityBlog.posts.map((post) => ({
       ...post,
@@ -73,7 +75,7 @@ export default function BlogsPage() {
       blogSlug: lifestyleBlog.blog.slug,
       blogName: lifestyleBlog.blog.name,
       blogColor: lifestyleBlog.blog.color,
-      blogIcon: lifestyleBlog.blog.icon,
+      blogIcon: (lifestyleBlog.blog as any).icon,
     })),
   ].sort(
     (a, b) =>
@@ -85,7 +87,7 @@ export default function BlogsPage() {
     const matchesSearch =
       post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.tags.some((tag) =>
+      post.tags.some((tag: any) =>
         tag.toLowerCase().includes(searchTerm.toLowerCase())
       );
 
