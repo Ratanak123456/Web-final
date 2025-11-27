@@ -75,29 +75,35 @@ export default function SectionGrid({ title, data }: SectionGridProps) {
         <div className="lg:col-span-4">
           <div className="flex flex-col bg-(--bg-secondary) rounded-xl p-6 border border-(--border) shadow-sm h-full">
             {data.list.map((item, index) => (
-              <article
+              <Link
                 key={index}
-                className="group cursor-pointer flex gap-4 items-start py-4 border-b border-(--border) last:border-0 hover:bg-(--bg-primary) transition-colors p-2 -mx-2 rounded-lg"
+                href={
+                  item.blogSlug && item.postSlug
+                    ? `/blogs/${item.blogSlug}/${item.postSlug}`
+                    : "#"
+                }
               >
-                <div className="w-20 h-20 shrink-0 bg-(--bg-secondary) rounded-md overflow-hidden shadow-sm relative">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="80px"
-                    className="object-cover group-hover:opacity-90 transition-opacity"
-                  />
-                </div>
-                <div className="space-y-1">
-                  <CategoryTag text={item.category} />
-                  <h4 className="text-sm font-bold leading-snug group-hover:text-(--text-secondary) line-clamp-2">
-                    {item.title}
-                  </h4>
-                  <p className="text-[10px] text-(--text-secondary) font-bold uppercase pt-1">
-                    {item.author}
-                  </p>
-                </div>
-              </article>
+                <article className="group cursor-pointer flex gap-4 items-start py-4 border-b border-(--border) last:border-0 hover:bg-(--bg-primary) transition-colors p-2 -mx-2 rounded-lg">
+                  <div className="w-20 h-20 shrink-0 bg-(--bg-secondary) rounded-md overflow-hidden shadow-sm relative">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="80px"
+                      className="object-cover group-hover:opacity-90 transition-opacity"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <CategoryTag text={item.category} />
+                    <h4 className="text-sm font-bold leading-snug group-hover:text-(--text-secondary) line-clamp-2">
+                      {item.title}
+                    </h4>
+                    <p className="text-[10px] text-(--text-secondary) font-bold uppercase pt-1">
+                      {item.author}
+                    </p>
+                  </div>
+                </article>
+              </Link>
             ))}
           </div>
         </div>

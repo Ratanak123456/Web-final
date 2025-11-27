@@ -27,12 +27,15 @@ const transformBlogData = (blog: any) => ({
         image:
           blog.posts[0].featuredImage?.url ||
           "https://placehold.co/1000x600/333/fff?text=" + blog.blog.name,
+        blogSlug: blog.blog.slug,
+        postSlug: blog.posts[0].slug,
       }
     : {
         category: blog.blog.name,
         title: "Latest " + blog.blog.name,
         author: "BlogSpace",
         image: "https://placehold.co/1000x600/333/fff?text=" + blog.blog.name,
+        blogSlug: blog.blog.slug,
       },
   list: blog.posts.slice(1, 7).map((post: any) => ({
     category: post.tags?.[0]?.toUpperCase() || blog.blog.name,
@@ -41,6 +44,8 @@ const transformBlogData = (blog: any) => ({
     image:
       post.featuredImage?.url ||
       "https://placehold.co/200x200/333/fff?text=" + post.title.slice(0, 10),
+    blogSlug: blog.blog.slug,
+    postSlug: post.slug,
   })),
 });
 
@@ -108,7 +113,7 @@ const latestStories = allPosts.slice(0, 6).map((post) => ({
 
 // Get trending news - top 5 posts with highest views from all blogs
 const trendingNews = allPosts
-  .sort((a, b) => (b.views || 0) - (a.views || 0))
+  .sort((a, b) => (b.stats?.views || 0) - (a.stats?.views || 0))
   .slice(0, 5)
   .map((post) => ({
     category: post.tags?.[0]?.toUpperCase() || "NEWS",
