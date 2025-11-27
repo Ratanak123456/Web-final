@@ -5,7 +5,7 @@ export type ContentBlock = {
   items?: string[];
   language?: string;
   code?: string;
-}
+};
 
 export type BlogPost = {
   id: number;
@@ -26,15 +26,15 @@ export type BlogPost = {
   featuredImage: {
     url: string;
     alt: string;
-    credit: string;
+    credit?: string;
   };
-  seo: {
+  seo?: {
     metaTitle: string;
     metaDescription: string;
     keywords: string[];
   };
   content: ContentBlock[];
-}
+};
 
 export type BlogData = {
   blog: {
@@ -56,14 +56,14 @@ export type BlogData = {
     description: string;
     postCount: number;
   }[];
-}
+};
 
 export type BlogPostWithBlogInfo = BlogPost & {
   blogSlug: string;
   blogName: string;
   blogColor: string;
   blogIcon: string;
-}
+};
 
 export type BlogIndex = {
   blogs: {
@@ -82,4 +82,4 @@ export type BlogIndex = {
       publishedAt: string;
     };
   }[];
-}
+};

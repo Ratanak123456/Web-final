@@ -13,8 +13,8 @@ type BlogHeaderProps = {
 const categories = [
   { id: "all", name: "All Articles" },
   { id: "technology", name: "Technology" },
-  { id: "design", name: "Design" },
-  { id: "productivity", name: "Productivity" },
+  { id: "entertainment", name: "Entertainment" },
+  { id: "climate", name: "Climate" },
   { id: "lifestyle", name: "Lifestyle" },
 ];
 

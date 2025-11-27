@@ -63,11 +63,6 @@
         "url": "/image/technology/save-100-on-a-playstation-5-ahead-of-black-friday.png",
         "alt": "PlayStation 5 console showing discount offer",
         "credit": "Sony"
-      },
-      "seo": {
-        "metaTitle": "Save $100 on PS5 Ahead of Black Friday",
-        "metaDescription": "Amazon offers a $100 discount on the Digital Edition PS5 Slim before Black Friday.",
-        "keywords": ["PS5", "Black Friday", "deals", "PlayStation 5", "gaming"]
       }
     },
 
@@ -88,8 +83,7 @@
         {
           "type": "image",
           "url": "/image/technology/id3/image.png",
-          "alt": "Micro Center RAM section with no price tags",
-          "credit": "Redditor CassTexas"
+          "alt": "Micro Center RAM section with no price tags"
         },
         {
           "type": "paragraph",
@@ -137,12 +131,7 @@
         "url": "/image/technology/id3/ram-memory-shortage-crunch-market-prices-central-micro-center.png",
         "alt": "RAM modules on display at a computer hardware store",
         "credit": "Sean Hollister"
-      },
-      "seo": {
-        "metaTitle": "RAM Prices Out of Control - Memory Shortage",
-        "metaDescription": "Explore why RAM prices are skyrocketing and how the memory shortage is impacting the tech market.",
-        "keywords": ["RAM", "memory shortage", "PC hardware", "DRAM", "GPU"]
-      }
+      } 
     }
   ]
 }
