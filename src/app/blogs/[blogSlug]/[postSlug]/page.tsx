@@ -77,9 +77,9 @@ type BlogData = {
 // Map of all blogs
 const blogData: Record<string, BlogData> = {
   technology: technologyBlog as BlogData,
-  design: designBlog as BlogData,
-  productivity: productivityBlog as BlogData,
-  lifestyle: lifestyleBlog as BlogData,
+  design: designBlog as unknown as BlogData,
+  productivity: productivityBlog as unknown as BlogData,
+  lifestyle: lifestyleBlog as unknown as BlogData,
 };
 
 export default function BlogPostDetail() {
