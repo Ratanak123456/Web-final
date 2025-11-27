@@ -27,6 +27,12 @@ export default function BlogsPage() {
 
     ...technologyBlog.posts.map((post) => ({
       ...post,
+      stats: {
+        views: (post.stats as any)?.views ?? 0,
+        likes: (post.stats as any)?.likes ?? 0,
+        comments: (post.stats as any)?.comments ?? 0,
+        shares: (post.stats as any)?.shares ?? 0,
+      },
       blogSlug: technologyBlog.blog.slug,
       blogName: technologyBlog.blog.name,
       blogColor: technologyBlog.blog.color,
@@ -34,6 +40,12 @@ export default function BlogsPage() {
     })),
     ...designBlog.posts.map((post) => ({
       ...post,
+      stats: {
+        views: (post.stats as any)?.views ?? 0,
+        likes: (post.stats as any)?.likes ?? 0,
+        comments: (post.stats as any)?.comments ?? 0,
+        shares: (post.stats as any)?.shares ?? 0,
+      },
       blogSlug: designBlog.blog.slug,
       blogName: designBlog.blog.name,
       blogColor: (designBlog.blog as any).color,
@@ -41,6 +53,12 @@ export default function BlogsPage() {
     })),
     ...productivityBlog.posts.map((post) => ({
       ...post,
+      stats: {
+        views: (post.stats as any)?.views ?? 0,
+        likes: (post.stats as any)?.likes ?? 0,
+        comments: (post.stats as any)?.comments ?? 0,
+        shares: (post.stats as any)?.shares ?? 0,
+      },
       blogSlug: productivityBlog.blog.slug,
       blogName: productivityBlog.blog.name,
       blogColor: productivityBlog.blog.color,
@@ -48,6 +66,12 @@ export default function BlogsPage() {
     })),
     ...lifestyleBlog.posts.map((post) => ({
       ...post,
+      stats: {
+        views: (post.stats as any)?.views ?? 0,
+        likes: (post.stats as any)?.likes ?? 0,
+        comments: (post.stats as any)?.comments ?? 0,
+        shares: (post.stats as any)?.shares ?? 0,
+      },
       blogSlug: lifestyleBlog.blog.slug,
       blogName: lifestyleBlog.blog.name,
       blogColor: lifestyleBlog.blog.color,
