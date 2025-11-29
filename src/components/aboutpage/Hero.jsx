@@ -1,6 +1,5 @@
 'use client';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 export default function Hero() {
   return (
@@ -11,13 +10,6 @@ export default function Hero() {
         transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
         className="absolute inset-0"
       >
-        <Image
-          src="/about-hero.jpg"
-          alt="Community of learners and educators"
-          fill
-          className="object-cover"
-          priority
-        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
       </motion.div>
 
@@ -28,9 +20,9 @@ export default function Hero() {
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="text-6xl md:text-8xl lg:text-9xl font-black leading-tight"
         >
-          We Believe<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-teal-400">
-            Learning Changes Lives
+          Stories That<br />
+          <span className="text-[var(--accent)]">
+            Connect Us All
           </span>
         </motion.h1>
 
@@ -40,8 +32,8 @@ export default function Hero() {
           transition={{ delay: 0.5, duration: 1 }}
           className="mt-8 text-2xl md:text-3xl font-light opacity-90 max-w-4xl mx-auto"
         >
-          A global movement of passionate learners and generous educators — 
-          united to make knowledge free, joyful, and available to every human being.
+          A global community of passionate writers and curious readers — 
+          united to share authentic stories, diverse perspectives, and meaningful conversations.
         </motion.p>
       </div>
     </section>

@@ -1,25 +1,26 @@
 'use client';
 import { motion } from 'framer-motion';
+import { PenSquare, Mic, MessageCircle, BookOpen, Ban, Home } from 'lucide-react';
 
 const benefits = [
-  { title: "Learn Anything, Anywhere", desc: "From quantum physics to watercolor painting — all courses are 100% free forever." },
-  { title: "Teach What You Love", desc: "No credentials required. If you’re passionate and knowledgeable, you can teach." },
-  { title: "Real Human Connection", desc: "Live sessions, study groups, mentorship — not just videos." },
-  { title: "Certificates That Matter", desc: "Earn shareable certificates recognized by top universities and companies." },
-  { title: "Zero Ads, Zero Tracking", desc: "We’re funded by donations only. Your privacy is sacred." },
-  { title: "Lifetime Access", desc: "Once you join, you’re family. Access everything forever — no subscriptions." },
+  { icon: PenSquare, title: "Write Anything, For Everyone", desc: "From personal essays to cultural analysis — all writing is welcomed and celebrated here." },
+  { icon: Mic, title: "Share Your Unique Voice", desc: "No credentials required. If you have a story to tell, you're a writer." },
+  { icon: MessageCircle, title: "Real Reader Connection", desc: "Thoughtful comments, writing circles, feedback sessions — not just passive views." },
+  { icon: BookOpen, title: "Build Your Writing Portfolio", desc: "Create a beautiful portfolio of your work, recognized by publishers and readers alike." },
+  { icon: Ban, title: "Zero Ads, Zero Algorithms", desc: "We're funded by community support only. Your attention is sacred." },
+  { icon: Home, title: "Lifetime Home For Your Words", desc: "Once you publish here, your stories stay forever — no deletions, no paywalls." },
 ];
 
 export default function Benefits() {
   return (
-    <section className="py-32 px-6 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-32 px-6 bg-gradient-to-b from-[var(--bg-secondary)] to-[var(--bg-primary)]">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="text-5xl md:text-7xl font-black text-center mb-20 text-gray-900"
+          className="text-5xl md:text-7xl font-black text-center mb-20 text-[var(--text-primary)]"
         >
-          Why People Love Being Here
+          Why Writers Love It Here
         </motion.h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -30,11 +31,13 @@ export default function Benefits() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.15, duration: 0.8 }}
               whileHover={{ y: -15, scale: 1.03 }}
-              className="group bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all border border-gray-100"
+              className="group bg-[var(--bg-secondary)] p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all border border-[var(--border)]"
             >
-              <div className="text-5xl mb-6">{["Lightbulb", "Chalkboard Teacher", "Globe", "Graduation Cap", "Lock", "Infinity"][i]}</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">{b.title}</h3>
-              <p className="text-gray-600 text-lg leading-relaxed">{b.desc}</p>
+              <div className="flex justify-center mb-6">
+                <b.icon className="w-16 h-16 text-[var(--accent)]" />
+              </div>
+              <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">{b.title}</h3>
+              <p className="text-[var(--text-secondary)] text-lg leading-relaxed">{b.desc}</p>
             </motion.div>
           ))}
         </div>

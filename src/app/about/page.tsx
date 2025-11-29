@@ -13,7 +13,7 @@ export const metadata = {
 
 export default function About() {
   return (
-    <>
+    <main>
       <Hero />
       <Story />
       <Benefits />
@@ -22,9 +22,6 @@ export default function About() {
       <TeamQuote />
       <FinalCTA />
       <GlobalImpact />
-    
-      
-      
-    </>
+    </main>
   );
 }

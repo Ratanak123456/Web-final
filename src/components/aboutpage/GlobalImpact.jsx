@@ -1,25 +1,25 @@
 'use client';
 import { motion } from 'framer-motion';
 
-export default function GlobalImpact() {
-  const stats = [
-    { value: "75K+", label: "Learners Worldwide" },
-    { value: "5.2K+", label: "Volunteer Teachers" },
-    { value: "420+", label: "Free Courses" },
-    { value: "189", label: "Countries" },
-    { value: "1.2M+", label: "Lessons Completed" },
-    { value: "100%", label: "Free Forever" },
-  ];
+const stats = [
+  { value: "75K+", label: "Active Readers" },
+  { value: "5.2K+", label: "Writers" },
+  { value: "42K+", label: "Articles Published" },
+  { value: "189", label: "Countries" },
+  { value: "1.2M+", label: "Comments & Conversations" },
+  { value: "100%", label: "Ad-Free Forever" },
+];
 
+export default function GlobalImpact() {
   return (
-    <section className="py-32 px-6 bg-gradient-to-r from-blue-600 to-teal-600 text-white">
+    <section className="py-32 px-6 bg-gradient-to-r from-[var(--accent)] to-[var(--accent)]/80 text-white">
       <div className="max-w-7xl mx-auto text-center">
         <motion.h2
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           className="text-5xl md:text-7xl font-black mb-20"
         >
-          One Community. Global Impact.
+          Words Have Power
         </motion.h2>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10">
