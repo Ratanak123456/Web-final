@@ -5,6 +5,14 @@ import entertainmentBlog from "@/data/blogs/entertainment-blog.json";
 import lifestyleBlog from "@/data/blogs/lifestyle-blog.json";
 import climateBlog from "@/data/blogs/climate-blog.json";
 import authorsData from "@/data/authors.json";
+
+
+
+export const metadata = {
+  title: 'About • A Global Community of Passionate Learners & Educators',
+};
+
+
 import {
   SectionHeader,
   CategoryTag,
@@ -134,6 +142,9 @@ const sections = [
   { title: "CLIMATE", data: transformBlogData(climateBlog) },
 ];
 
+
+
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-(--bg-primary) text-(--text-primary) font-sans selection:bg-(--accent)/10">
@@ -168,6 +179,8 @@ export default function Home() {
               ))}
             </section>
           </section>
+
+          
 
           {/* RIGHT COLUMN: Sidebar Latest */}
           <aside className="lg:col-span-4 relative">
