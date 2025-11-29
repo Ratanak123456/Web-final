@@ -1,18 +1,14 @@
 import Link from "next/link";
 import { Calendar, Clock, Eye } from "lucide-react";
-import { BlogPostWithBlogInfo } from "../../types/blog";
+import { BlogPostWithBlogInfo, BlogCardProps } from "../../types/blog";
 import Image from "next/image";
-
-type BlogCardProps = {
-  post: BlogPostWithBlogInfo;
-}
 
 export default function BlogCard({ post }: BlogCardProps) {
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
     });
   };
 
@@ -28,17 +24,17 @@ export default function BlogCard({ post }: BlogCardProps) {
             className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-          
+
           {/* Blog Category Badge */}
           <div className="absolute top-4 left-4">
-            <span 
+            <span
               className="px-3 py-1 rounded-full text-white text-sm font-medium"
               style={{ backgroundColor: post.blogColor }}
             >
               {post.blogName}
             </span>
           </div>
-          
+
           {post.featured && (
             <div className="absolute top-4 right-4">
               <span className="px-2 py-1 bg-white/90 rounded text-xs font-medium text-gray-700">

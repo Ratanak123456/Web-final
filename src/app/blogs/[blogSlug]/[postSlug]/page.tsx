@@ -14,7 +14,7 @@ import { useState } from "react";
 import { useParams } from "next/navigation";
 
 // Import types
-import { ContentBlock } from "../../../../types/blog";
+import { ContentBlock, BlogData } from "../../../../types/blog";
 
 // Import blog data
 import technologyBlog from "../../../../data/blogs/technology-blog.json";
@@ -23,57 +23,7 @@ import climateBlog from "../../../../data/blogs/climate-blog.json";
 import lifestyleBlog from "../../../../data/blogs/lifestyle-blog.json";
 import authorsData from "../../../../data/authors.json";
 import Image from "next/image";
-
-// Type for blog data (simplified)
-type BlogData = {
-  blog: {
-    id: number;
-    slug: string;
-    name: string;
-    description: string;
-    category: string;
-    featured: boolean;
-    color: string;
-    icon: string;
-    coverImage: string;
-  };
-  posts: Array<{
-    id: number;
-    slug: string;
-    title: string;
-    excerpt: string;
-    authorId: number;
-    tags: string[];
-    publishedAt: string;
-    readTime: number;
-    featured: boolean;
-    stats: {
-      views: number;
-      likes: number;
-      comments: number;
-      shares: number;
-    };
-    featuredImage: {
-      url: string;
-      alt: string;
-      credit: string;
-    };
-    seo: {
-      metaTitle: string;
-      metaDescription: string;
-      keywords: string[];
-    };
-    content: Array<{
-      type: string;
-      text?: string;
-      level?: number;
-      items?: string[];
-      language?: string;
-      code?: string;
-    }>;
-  }>;
-};
-
+import SubStoryCard from "@/components/card/SubCard";
 // Map of all blogs
 const blogData: Record<string, BlogData> = {
   technology: technologyBlog as unknown as BlogData,
@@ -247,8 +197,12 @@ export default function BlogPostDetail() {
       title: post.title,
       excerpt: post.excerpt,
       category: currentBlog.blog.name,
+      author: author.name,
       readTime: `${post.readTime} min read`,
       date: formatDate(post.publishedAt),
+      image:
+        post.featuredImage?.url ||
+        "https://placehold.co/800x600/333/fff?text=Post",
     }));
 
   return (
@@ -446,30 +400,13 @@ export default function BlogPostDetail() {
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {relatedPosts.map((post) => (
-                <Link
+                <SubStoryCard
                   key={post.id}
-                  href={`/blogs/${blogSlug}/${post.slug}`}
-                  className="block border border-(--border) rounded-lg overflow-hidden hover:border-(--accent) transition-colors group bg-(--bg-primary)"
-                >
-                  <div className="p-6">
-                    <span
-                      className="inline-block px-2 py-1 rounded text-xs font-medium mb-3 text-white"
-                      style={{ backgroundColor: currentBlog.blog.color }}
-                    >
-                      {post.category}
-                    </span>
-                    <h3 className="font-semibold text-(--text-primary) mb-2 group-hover:text-(--accent) transition-colors line-clamp-2">
-                      {post.title}
-                    </h3>
-                    <p className="text-(--text-secondary) text-sm mb-4 line-clamp-2">
-                      {post.excerpt}
-                    </p>
-                    <div className="flex items-center justify-between text-(--text-secondary) text-xs">
-                      <span>{post.date}</span>
-                      <span>{post.readTime}</span>
-                    </div>
-                  </div>
-                </Link>
+                  image={post.image}
+                  title={post.title}
+                  category={post.category}
+                  author={post.author}
+                />
               ))}
             </div>
           </section>
