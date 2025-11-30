@@ -9,7 +9,7 @@ import authorsData from "@/data/authors.json";
 
 
 export const metadata = {
-  title: 'About • A Global Community of Passionate Learners & Educators',
+  title: 'Home • Stories That Connect Us All - Share & Discover Meaningful Conversations',
 };
 
 
@@ -98,6 +98,9 @@ const topStories = {
         image: "https://placehold.co/1200x800/222/3b82f6?text=Technology",
       },
   sub: techPosts.slice(1, 3).map((post) => ({
+    id: post.id,
+    slug: post.slug,
+    blogSlug: technologyBlog.blog.slug,
     category: technologyBlog.blog.name,
     title: post.title,
     author: authors.find((a) => a.id === post.authorId)?.name || "Unknown",
@@ -171,6 +174,9 @@ export default function Home() {
               {topStories.sub.map((story, index) => (
                 <SubStoryCard
                   key={index}
+                  id={story.id}
+                  slug={story.slug}
+                  blogSlug={story.blogSlug}
                   image={story.image}
                   title={story.title}
                   category={story.category}
