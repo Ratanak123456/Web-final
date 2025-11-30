@@ -16,6 +16,8 @@ import designBlog from "../../data/blogs/entertainment-blog.json";
 import climateBlog from "../../data/blogs/climate-blog.json";
 import lifestyleBlog from "../../data/blogs/lifestyle-blog.json";
 
+
+
 export default function BlogsPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");

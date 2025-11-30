@@ -2,7 +2,7 @@
   "blog": {
     "id": 3,
     "slug": "climate",
-    "name": "climate Blog",
+    "name": "Climate Blog",
     "description": "Insights and updates on climate change, sustainability, and environmental issues",
     "category": "climate",
     "featured": false,

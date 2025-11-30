@@ -13,12 +13,12 @@ const values = [
 
 export default function Values() {
   return (
-    <section className="py-40 px-6 bg-[var(--bg-primary)]">
+    <section className="py-40 px-6 bg-(--bg-primary)">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="text-5xl md:text-7xl font-black text-center mb-20 text-[var(--text-primary)]"
+          className="text-5xl md:text-7xl font-black text-center mb-20 text-(--text-primary)"
         >
           Our Writing Philosophy
         </motion.h2>
@@ -34,10 +34,10 @@ export default function Values() {
               className="group text-center"
             >
               <div className="flex justify-center mb-6">
-                <v.icon className="w-24 h-24 text-[var(--accent)]" />
+                <v.icon className="w-24 h-24 text-(--accent)" />
               </div>
-              <h3 className="text-3xl font-bold text-[var(--text-primary)] mb-4">{v.title}</h3>
-              <p className="text-xl text-[var(--text-secondary)] leading-relaxed px-4">{v.desc}</p>
+              <h3 className="text-3xl font-bold text-(--text-primary) mb-4">{v.title}</h3>
+              <p className="text-xl text-(--text-secondary) leading-relaxed px-4">{v.desc}</p>
             </motion.div>
           ))}
         </div>

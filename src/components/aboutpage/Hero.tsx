@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Hero() {
   return (
@@ -10,7 +11,14 @@ export default function Hero() {
         transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
         className="absolute inset-0"
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+        <Image
+          src="/about-hero.jpg"
+          alt="Community of learners and educators"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
       </motion.div>
 
       <div className="relative z-10 text-center px-6 max-w-6xl mx-auto text-white">
@@ -21,7 +29,7 @@ export default function Hero() {
           className="text-6xl md:text-8xl lg:text-9xl font-black leading-tight"
         >
           Stories That<br />
-          <span className="text-[var(--accent)]">
+          <span className="text-(--accent)">
             Connect Us All
           </span>
         </motion.h1>

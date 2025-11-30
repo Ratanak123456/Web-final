@@ -187,23 +187,22 @@ export default function BlogPostDetail() {
     });
   };
 
-  // Get related posts (posts from the same blog, excluding current post)
-  const relatedPosts = currentBlog.posts
-    .filter((post) => post.id !== blogPost.id)
-    .slice(0, 3)
-    .map((post) => ({
-      id: post.id,
-      slug: post.slug,
-      title: post.title,
-      excerpt: post.excerpt,
-      category: currentBlog.blog.name,
-      author: author.name,
-      readTime: `${post.readTime} min read`,
-      date: formatDate(post.publishedAt),
-      image:
-        post.featuredImage?.url ||
-        "https://placehold.co/800x600/333/fff?text=Post",
-    }));
+// Get related posts (posts from the same blog, excluding current post)
+const relatedPosts = currentBlog.posts
+  .filter((post) => post.id !== blogPost.id)
+  .slice(0, 3)
+  .map((post) => ({
+    id: post.id,
+    slug: post.slug, // Make sure this is included
+    blogSlug: blogSlug, // Add the blog slug
+    title: post.title,
+    excerpt: post.excerpt,
+    category: currentBlog.blog.name,
+    author: author.name,
+    readTime: `${post.readTime} min read`,
+    date: formatDate(post.publishedAt),
+    image: post.featuredImage?.url || "https://placehold.co/800x600/333/fff?text=Post",
+  }));
 
   return (
     <div className="min-h-screen bg-(--bg-primary)">
@@ -399,15 +398,18 @@ export default function BlogPostDetail() {
               More from {currentBlog.blog.name}
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {relatedPosts.map((post) => (
-                <SubStoryCard
-                  key={post.id}
-                  image={post.image}
-                  title={post.title}
-                  category={post.category}
-                  author={post.author}
-                />
-              ))}
+{relatedPosts.map((post) => (
+  <SubStoryCard
+    key={post.id}
+    id={post.id}
+    slug={post.slug}
+    blogSlug={post.blogSlug}
+    image={post.image}
+    title={post.title}
+    category={post.category}
+    author={post.author}
+  />
+))}
             </div>
           </section>
         )}

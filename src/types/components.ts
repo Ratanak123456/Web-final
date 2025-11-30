@@ -16,6 +16,9 @@ export type TopStoryCardProps = {
 
 // SubStoryCard Component Props
 export type SubStoryCardProps = {
+  id: number;
+  slug: string;
+  blogSlug: string;
   image: string;
   title: string;
   category: string;

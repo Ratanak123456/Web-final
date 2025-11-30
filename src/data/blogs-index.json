@@ -9,59 +9,54 @@
       "postCount": 2,
       "featured": true,
       "color": "#3B82F6",
-      "icon": "💻",
       "latestPost": {
-        "slug": "future-web-development-trends-2024",
-        "title": "The Future of Web Development: Trends to Watch in 2024",
-        "publishedAt": "2023-12-15"
+        "slug": "ram-memory-shortage-crunch-market-prices-central-micro-center",
+        "title": "RAM prices are so out of control that stores are selling it like lobster",
+        "publishedAt": "2025-11-25"
       }
     },
     {
       "id": 2,
-      "slug": "design",
-      "name": "Design Blog",
-      "description": "UI/UX design principles, best practices, and creative inspiration",
-      "category": "design",
+      "slug": "entertainment",
+      "name": "Entertainment Blog",
+      "description": "Latest news and insights from the entertainment world",
+      "category": "entertainment",
       "postCount": 2,
       "featured": true,
       "color": "#8B5CF6",
-      "icon": "🎨",
       "latestPost": {
-        "slug": "css-architecture-for-scale",
-        "title": "CSS Architecture for Scale",
-        "publishedAt": "2023-11-28"
+        "slug": "microsoft-rog-xbox-ally-default-game-profiles",
+        "title": "ROG Xbox Ally’s new profiles optimize performance per game for more battery life",
+        "publishedAt": "2025-11-25"
       }
     },
     {
       "id": 3,
-      "slug": "productivity",
-      "name": "Productivity Blog",
-      "description": "Tools, techniques, and workflows to boost your efficiency",
-      "category": "productivity",
+      "slug": "20251126-climate-change-increasingly-threatens-dynamic-spanish-economy-oecd",
+      "title": "Climate change 'increasingly threatens' dynamic Spanish economy: OECD",
+      "description": "Insights and updates on climate change, sustainability, and environmental issues",
+      "category": "climate",
       "postCount": 2,
       "featured": false,
       "color": "#10B981",
-      "icon": "⚡",
       "latestPost": {
         "slug": "developer-productivity-tips",
         "title": "Developer Productivity Tips and Tricks",
-        "publishedAt": "2023-11-15"
+        "publishedAt": "2025-11-26"
       }
     },
     {
       "id": 4,
       "slug": "lifestyle",
-      "name": "Developer Lifestyle",
-      "description": "Balancing work, life, and wellness as a developer",
-      "category": "lifestyle",
+      "name": "Lifestyle",
+      "description": "Tips and inspiration for a balanced and fulfilling lifestyle",
       "postCount": 2,
       "featured": false,
       "color": "#F59E0B",
-      "icon": "🌱",
       "latestPost": {
-        "slug": "avoiding-developer-burnout",
-        "title": "Avoiding Developer Burnout: Signs and Strategies",
-        "publishedAt": "2023-11-05"
+        "slug": "thanksgiving-like-holidays-from-around-the-world",
+        "title": "Thanksgiving-Like Holidays From Around The World",
+        "publishedAt": "2025-11-13"
       }
     }
   ]

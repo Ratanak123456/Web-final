@@ -13,12 +13,12 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <section className="py-32 px-6 bg-gradient-to-b from-[var(--bg-secondary)] to-[var(--bg-primary)]">
+    <section className="py-32 px-6 bg-linear-to-b from-(--bg-secondary) to-(--bg-primary)">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="text-5xl md:text-7xl font-black text-center mb-20 text-[var(--text-primary)]"
+          className="text-5xl md:text-7xl font-black text-center mb-20 text-(--text-primary)"
         >
           Why Writers Love It Here
         </motion.h2>
@@ -31,13 +31,13 @@ export default function Benefits() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.15, duration: 0.8 }}
               whileHover={{ y: -15, scale: 1.03 }}
-              className="group bg-[var(--bg-secondary)] p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all border border-[var(--border)]"
+              className="group bg-(--bg-secondary) p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all border border-(--border)"
             >
               <div className="flex justify-center mb-6">
-                <b.icon className="w-16 h-16 text-[var(--accent)]" />
+                <b.icon className="w-16 h-16 text-(--accent)" />
               </div>
-              <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">{b.title}</h3>
-              <p className="text-[var(--text-secondary)] text-lg leading-relaxed">{b.desc}</p>
+              <h3 className="text-2xl font-bold text-(--text-primary) mb-4">{b.title}</h3>
+              <p className="text-(--text-secondary) text-lg leading-relaxed">{b.desc}</p>
             </motion.div>
           ))}
         </div>

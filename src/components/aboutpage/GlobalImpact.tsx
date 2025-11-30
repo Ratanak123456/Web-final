@@ -12,7 +12,7 @@ const stats = [
 
 export default function GlobalImpact() {
   return (
-    <section className="py-32 px-6 bg-gradient-to-r from-[var(--accent)] to-[var(--accent)]/80 text-white">
+    <section className="py-32 px-6 bg-linear-to-r from-(--accent) to-(--accent)/80 text-white">
       <div className="max-w-7xl mx-auto text-center">
         <motion.h2
           initial={{ scale: 0.8, opacity: 0 }}

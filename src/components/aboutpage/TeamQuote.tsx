@@ -20,12 +20,12 @@ export default function TeamQuote() {
   }, []);
 
   return (
-    <section className="py-40 px-6 bg-gradient-to-b from-[var(--bg-secondary)] to-[var(--bg-primary)]">
+    <section className="py-40 px-6 bg-gradient-to-b from-(--bg-secondary) to-(--bg-primary)">
       <div className="max-w-4xl mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="text-5xl md:text-7xl font-black mb-20 text-[var(--text-primary)]"
+          className="text-5xl md:text-7xl font-black mb-20 text-(--text-primary)"
         >
           Real Writers, Real Stories
         </motion.h2>
@@ -40,10 +40,10 @@ export default function TeamQuote() {
               transition={{ duration: 0.8 }}
               className="absolute inset-0 flex flex-col items-center justify-center px-8"
             >
-              <p className="text-3xl md:text-4xl font-light text-[var(--text-primary)] italic leading-relaxed mb-10">
+              <p className="text-3xl md:text-4xl font-light text-(--text-primary) italic leading-relaxed mb-10">
                 "{quotes[index].text}"
               </p>
-              <p className="text-2xl font-bold text-[var(--accent)]">— {quotes[index].author}</p>
+              <p className="text-2xl font-bold text-(--accent)">— {quotes[index].author}</p>
             </motion.div>
           </AnimatePresence>
         </div>
@@ -56,8 +56,8 @@ export default function TeamQuote() {
               onClick={() => setIndex(i)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 i === index 
-                  ? "bg-[var(--accent)] w-10" 
-                  : "bg-[var(--border)] hover:bg-[var(--accent)]/50"
+                  ? "bg-(--accent) w-10" 
+                  : "bg-(--border) hover:bg-(--accent)/50"
               }`}
             />
           ))}
