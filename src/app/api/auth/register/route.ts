@@ -24,14 +24,14 @@ export async function POST(req: Request) {
       );
     }
 
-    // Path to authors.json
-    const usersPath = path.join(process.cwd(), "src/data/authors.json");
-    const usersData: { authors: User[] } = JSON.parse(
+    // Path to users.json
+    const usersPath = path.join(process.cwd(), "src/data/users.json");
+    const usersData: { users: User[] } = JSON.parse(
       fs.readFileSync(usersPath, "utf-8")
     );
 
     // Check if user already exists
-    if (usersData.authors.find((u) => u.email === email)) {
+    if (usersData.users.find((u) => u.email === email)) {
       return NextResponse.json(
         { message: "User already exists." },
         { status: 400 }
@@ -43,7 +43,7 @@ export async function POST(req: Request) {
 
     // Create new user
     const newUser: User = {
-      id: usersData.authors.length + 1,
+      id: usersData.users.length + 1,
       slug: name.toLowerCase().replace(/\s+/g, "-"),
       name,
       email,
@@ -52,7 +52,7 @@ export async function POST(req: Request) {
     };
 
     // Save user
-    usersData.authors.push(newUser);
+    usersData.users.push(newUser);
     fs.writeFileSync(usersPath, JSON.stringify(usersData, null, 2));
 
     return NextResponse.json(
