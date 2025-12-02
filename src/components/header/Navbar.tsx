@@ -5,9 +5,11 @@ import Link from "next/link";
 import { useState } from "react";
 import ThemeButton from "./ThemeButton";
 import siteConfig from '../../data/site-config.json';
+import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { data: session } = useSession();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -48,18 +50,34 @@ export default function Navbar() {
           {/* Desktop Auth Buttons */}
           <div className="hidden lg:flex justify-center space-x-4 items-center">
             <ThemeButton/>
-            <Link
-              href="/signin"
-              className="py-2 px-4 border border-(--border) text-(--text-primary) rounded-md hover:bg-(--bg-secondary) transition-colors"
-            >
-              Sign In
-            </Link>
-            <Link
-              href="/signup"
-              className="bg-(--accent) text-white py-2 px-4 rounded-md hover:bg-(--accent-hover) transition-colors"
-            >
-              Create an account
-            </Link>
+            {session ? (
+              <>
+                <Link href="/profile" className="py-2 px-4 border border-(--border) text-(--text-primary) rounded-md hover:bg-(--bg-secondary) transition-colors">
+                  Profile
+                </Link>
+                <button
+                  onClick={() => signOut()}
+                  className="bg-(--accent) text-white py-2 px-4 rounded-md hover:bg-(--accent-hover) transition-colors"
+                >
+                  Sign Out
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={() => signIn()}
+                  className="py-2 px-4 border border-(--border) text-(--text-primary) rounded-md hover:bg-(--bg-secondary) transition-colors"
+                >
+                  Sign In
+                </button>
+                <Link
+                  href="/login?register=true"
+                  className="bg-(--accent) text-white py-2 px-4 rounded-md hover:bg-(--accent-hover) transition-colors"
+                >
+                  Create an account
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -90,20 +108,45 @@ export default function Navbar() {
             {/* Mobile Auth Buttons */}
             <div className="pt-4 pb-3 border-t border-(--border) mt-2 space-y-3">
               <ThemeButton />
-              <Link
-                href="/signin"
-                className="block w-full text-center px-3 py-2 border border-(--border) text-(--text-primary) rounded-md hover:bg-(--bg-secondary) transition-colors"
-                onClick={closeMobileMenu}
-              >
-                Sign In
-              </Link>
-              <Link
-                href="/signup"
-                className="block w-full text-center px-3 py-2 bg-(--accent) text-white rounded-md hover:bg-(--accent-hover) transition-colors"
-                onClick={closeMobileMenu}
-              >
-                Create an account
-              </Link>
+              {session ? (
+                <>
+                  <Link
+                    href="/profile"
+                    className="block w-full text-center px-3 py-2 border border-(--border) text-(--text-primary) rounded-md hover:bg-(--bg-secondary) transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    Profile
+                  </Link>
+                  <button
+                    onClick={() => {
+                      signOut();
+                      closeMobileMenu();
+                    }}
+                    className="block w-full text-center px-3 py-2 bg-(--accent) text-white rounded-md hover:bg-(--accent-hover) transition-colors"
+                  >
+                    Sign Out
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    onClick={() => {
+                      signIn();
+                      closeMobileMenu();
+                    }}
+                    className="block w-full text-center px-3 py-2 border border-(--border) text-(--text-primary) rounded-md hover:bg-(--bg-secondary) transition-colors"
+                  >
+                    Sign In
+                  </button>
+                  <Link
+                    href="/login?register=true"
+                    className="block w-full text-center px-3 py-2 bg-(--accent) text-white rounded-md hover:bg-(--accent-hover) transition-colors"
+                    onClick={closeMobileMenu}
+                  >
+                    Create an account
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>
