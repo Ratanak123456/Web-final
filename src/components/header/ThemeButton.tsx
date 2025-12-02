@@ -9,14 +9,17 @@ export default function ThemeButton() {
     return window.localStorage.getItem("darkMode") === "true";
   });
 
+  // update class & localStorage
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
-    try {
+    if (typeof window !== "undefined") {
+      document.documentElement.classList.toggle("dark", darkMode);
       window.localStorage.setItem("darkMode", String(darkMode));
-    } catch {}
+    }
   }, [darkMode]);
 
   const toggleDarkMode = () => setDarkMode((v) => !v);
+
+  if (typeof window === "undefined") return null; // avoid SSR mismatch
 
   return (
     <button
@@ -36,20 +39,16 @@ export default function ThemeButton() {
         hover:scale-105
       "
     >
-      {/* Animated wrapper — rotates as a single element */}
       <span
         className={`relative w-5 h-5 inline-block transition-transform duration-600 ease-in-out
           ${darkMode ? "rotate-180" : "rotate-0"}`}
         style={{ willChange: "transform" }}
       >
-        {/* Sun (visible in darkMode) */}
         <Sun
           size={20}
           className={`absolute inset-0 m-auto transition-all duration-300
             ${darkMode ? "opacity-100 scale-110" : "opacity-0 scale-90"}`}
         />
-
-        {/* Moon (visible in lightMode) */}
         <Moon
           size={20}
           className={`absolute inset-0 m-auto transition-all duration-300

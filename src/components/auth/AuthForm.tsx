@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { FaGithub, FaGoogle, FaFacebook, FaTwitter } from "react-icons/fa";
+import Link from "next/link";
 
 export default function AuthForm({ isRegisterInitially = false }: { isRegisterInitially?: boolean }) {
   const [isRegister, setIsRegister] = useState(isRegisterInitially);
@@ -18,7 +19,6 @@ export default function AuthForm({ isRegisterInitially = false }: { isRegisterIn
 
     try {
       if (isRegister) {
-        // Register
         const res = await fetch("/api/auth/register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -29,21 +29,13 @@ export default function AuthForm({ isRegisterInitially = false }: { isRegisterIn
         alert("Registration successful! You can now log in.");
         setIsRegister(false);
       } else {
-        // Login
-        const res = await signIn("credentials", {
-          redirect: false,
-          email,
-          password,
-        });
+        const res = await signIn("credentials", { redirect: false, email, password });
         if (res?.error) throw new Error(res.error);
-        window.location.href = "/"; // redirect after login
+        window.location.href = "/";
       }
     } catch (err: unknown) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError("An unexpected error occurred.");
-      }
+      if (err instanceof Error) setError(err.message);
+      else setError("An unexpected error occurred.");
     } finally {
       setLoading(false);
     }
@@ -56,23 +48,23 @@ export default function AuthForm({ isRegisterInitially = false }: { isRegisterIn
   return (
     <div className="flex min-h-screen w-full">
       {/* Left branding side */}
-      <div className="hidden lg:flex lg:w-1/2 items-center justify-center bg-gradient-to-br from-orange-500 to-yellow-200">
+      <Link href="/" className="hidden lg:flex lg:w-1/2 items-center justify-center" style={{ backgroundColor: "#C86B3F" }}>
         <div className="text-center text-white">
-          <div className="text-9xl font-extralight mb-8 drop-shadow-lg">∞</div>
-          <h1 className="text-6xl font-bold mb-4 drop-shadow-md">BlogSpace</h1>
+          <div className="text-9xl font-extralight mb-8 drop-shadow-lg cursor-pointer">∞</div>
+          <h1 className="text-6xl font-bold mb-4 drop-shadow-md cursor-pointer">BlogSpace</h1>
           <p className="text-2xl opacity-90 max-w-xs mx-auto">Your digital blogging hub</p>
         </div>
-      </div>
+      </Link>
 
       {/* Right form side */}
-      <div className="flex flex-1 items-center justify-center p-6 sm:p-8 md:p-12 bg-yellow-200">
+      <div className="flex flex-1 items-center justify-center p-6 sm:p-8 md:p-12" style={{ backgroundColor: "#D9C9B5" }}>
         <div className="w-full max-w-lg p-8 bg-white rounded-3xl shadow-[0_25px_60px_rgba(0,0,0,0.2)] border border-[rgba(0,0,0,0.05)] transition-all hover:shadow-[0_35px_80px_rgba(0,0,0,0.25)]">
           
           {/* Mobile Logo */}
-          <div className="lg:hidden text-center mb-8">
-            <div className="text-5xl mb-2 text-orange-500">∞</div>
-            <h1 className="text-3xl font-bold text-gray-800">BlogSpace</h1>
-          </div>
+          <Link href="/" className="lg:hidden text-center mb-8">
+            <div className="text-5xl mb-2 text-orange-500 cursor-pointer">∞</div>
+            <h1 className="text-3xl font-bold text-gray-800 cursor-pointer">BlogSpace</h1>
+          </Link>
 
           <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
             {isRegister ? "Create your account" : "Log into BlogSpace"}
@@ -116,7 +108,7 @@ export default function AuthForm({ isRegisterInitially = false }: { isRegisterIn
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="w-full px-5 py-3 text-base rounded-2xl border focus:outline-none transition-shadow shadow-sm focus:shadow-md"
-                style={{ borderColor: "#F3E2C3", color: "#3A2F27" }}
+                style={{ borderColor: "#C86B3F", color: "#3A2F27" }}
               />
             )}
             <input
@@ -125,7 +117,7 @@ export default function AuthForm({ isRegisterInitially = false }: { isRegisterIn
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full px-5 py-3 text-base rounded-2xl border focus:outline-none transition-shadow shadow-sm focus:shadow-md"
-              style={{ borderColor: "#F3E2C3", color: "#3A2F27" }}
+              style={{ borderColor: "#C86B3F", color: "#3A2F27" }}
             />
             <input
               type="password"
@@ -133,7 +125,7 @@ export default function AuthForm({ isRegisterInitially = false }: { isRegisterIn
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full px-5 py-3 text-base rounded-2xl border focus:outline-none transition-shadow shadow-sm focus:shadow-md"
-              style={{ borderColor: "#F3E2C3", color: "#3A2F27" }}
+              style={{ borderColor: "#C86B3F", color: "#3A2F27" }}
             />
 
             {error && <p className="text-sm text-red-500">{error}</p>}
@@ -142,7 +134,7 @@ export default function AuthForm({ isRegisterInitially = false }: { isRegisterIn
               onClick={handleSubmit}
               disabled={loading}
               className="w-full py-3 text-lg font-semibold text-white rounded-2xl transition-shadow shadow-md hover:shadow-lg"
-              style={{ backgroundColor: "#E46A4B" }}
+              style={{ backgroundColor: "#C86B3F" }}
             >
               {loading ? "Processing..." : isRegister ? "Sign Up" : "Log In"}
             </button>
