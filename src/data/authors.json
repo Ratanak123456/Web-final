@@ -29,6 +29,14 @@
       "slug": "sean-hollister",
       "name": "Sean Hollister",
       "role": "Senior Editor at The Verge"
+    },
+    {
+      "id": 6,
+      "slug": "ratanaksaren",
+      "name": "Ratanaksaren",
+      "email": "ratanaksaren3@gmail.com",
+      "password": "$2b$10$HpYrNMR2kWs3YjeIzztRAe3LMvo966xKyrNwIP5.W6.Z1hvb2NeIu",
+      "role": "User"
     }
   ]
 }
